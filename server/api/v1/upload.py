@@ -6,6 +6,11 @@ upload = Blueprint("upload", __name__)
 directory = "c:/Users/Santiago/OneDrive/Escritorio/esrgan/server/api/images"
 
 
+"""
+This function uploads a file, saves it to a directory, compresses it, and returns the file paths.
+:return: a JSON object with a message indicating that the file was uploaded successfully, the
+original file path, and the compressed file path.
+"""
 @upload.route("/api/v1/upload", methods=["POST"])
 def upload_file():
     _file = request.files["file"]

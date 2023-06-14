@@ -6,6 +6,14 @@ API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjBhM2M1
 cloudconvert.configure(api_key=API_KEY, sandbox=False)
 
 
+"""
+This function compresses an image file by converting it to a specified file format using
+CloudConvert API.
+
+:param file_path: The path to the file that needs to be compressed
+:param file_ext: The file extension of the desired output format for the compressed image
+:return: the name of the compressed file.
+"""
 def comprimir_imagen(file_path, file_ext):
     with open(file_path, "rb") as input_file:
         input_data = input_file.read()
@@ -23,7 +31,7 @@ def comprimir_imagen(file_path, file_ext):
                     "operation": "convert",
                     "input": "import-my-file",
                     "output_format": file_ext,
-                    "region": "us",  # Specify the region here
+                    "region": "us",
                 },
                 "export-my-file": {
                     "operation": "export/url",
